@@ -1,0 +1,11 @@
+class Solution {
+    public int numWaterBottles(int numBottles, int numExchange) {
+        int cnt = 0;
+        while (numBottles != 0) {
+            numBottles --;
+            cnt ++;
+            if (cnt % numExchange == 0) cnt ++;
+        }
+        return cnt;
+    }
+}
