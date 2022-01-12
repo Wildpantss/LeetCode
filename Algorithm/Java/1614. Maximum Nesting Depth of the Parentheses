@@ -1,0 +1,21 @@
+class Solution {
+    public int maxDepth(String s) {
+        char[] stack = new char[s.length()];
+        int maxDepthCnt = 0;
+        int stackTop = 0;
+        
+        for (int i = 0; i < s.length(); ++i) {
+            if (s.charAt(i) == '(') { // left bracket, push
+                stack[stackTop++] = '(';
+                maxDepthCnt = Math.max(stackTop, maxDepthCnt);
+            }
+            else if (s.charAt(i) == ')') { // right bracket, check top and pop
+                if (stack[stackTop-1] == '(') {
+                    --stackTop;
+                }
+            }
+            // ignore other situations
+        }
+        return maxDepthCnt;
+    }
+}
